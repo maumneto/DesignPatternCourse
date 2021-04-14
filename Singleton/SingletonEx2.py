@@ -13,6 +13,7 @@ class Singleton(object):
         return cls.__instance
 
 
-singleton = Singleton()
-print('Object created: ', singleton.getInstance())
 object1 = Singleton()
+print('Object created: ', object1.getInstance())
+object2 = Singleton()
+print('Object created: ', object2.getInstance())

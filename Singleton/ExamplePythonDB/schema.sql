@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS formulario (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    fullname TEXT NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    email TEXT,
+    city TEXT NOT NULL,
+    uf VARCHAR(2) NOT NULL,
+    date_create DATE NOT NULL
+);

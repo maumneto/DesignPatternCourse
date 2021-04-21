@@ -6,7 +6,7 @@ from connect import Database
 class 
 
 """
-class manipulateSchema(object):
+class ManipulateSchema(object):
     def __init__(self):
         self.db = Database()
     

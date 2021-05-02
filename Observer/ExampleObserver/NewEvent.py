@@ -1,7 +1,6 @@
-from datetime import datetime
+# from datetime import datetime
 import time
-from abc import ABCMeta, abstractmethod
-import asyncio
+# from abc import ABCMeta, abstractmethod
 
 # class Subject 
 class NewEvent:
@@ -31,52 +30,52 @@ class NewEvent:
     
     def AddEventTime(self, hour=00, minutes=00, seconds = 00):
         now = time.localtime()
-        flag = False;
+        flag = False
         if (now.tm_hour == hour and now.tm_min == minutes):
             self.notifyAll()
             flag = True
         return flag
         
 
-# interface observer
-class Subscriber(metaclass=ABCMeta):
-    @abstractmethod
-    def update(self):
-        pass
+# # interface observer
+# class Subscriber(metaclass=ABCMeta):
+#     @abstractmethod
+#     def update(self):
+#         pass
 
-# observer concrete 1
-class EmailSubscriber:
-    def __init__(self, publisher):
-        self.publisher = publisher
-        self.publisher.attach(self)
+# # observer concrete 1
+# class EmailSubscriber:
+#     def __init__(self, publisher):
+#         self.publisher = publisher
+#         self.publisher.attach(self)
 
-    def update(self):
-        print(type(self).__name__, self.publisher.getEvent())
+#     def update(self):
+#         print(type(self).__name__, self.publisher.getEvent())
 
-# observer concrete 2
-class SMSSubscriber:
-    def __init__(self, publisher):
-        self.publisher = publisher
-        self.publisher.attach(self)
+# # observer concrete 2
+# class SMSSubscriber:
+#     def __init__(self, publisher):
+#         self.publisher = publisher
+#         self.publisher.attach(self)
 
-    def update(self):
-        print(type(self).__name__, self.publisher.getEvent())
+#     def update(self):
+#         print(type(self).__name__, self.publisher.getEvent())
 
 
-if __name__ == '__main__':
-    new_event = NewEvent()
+# if __name__ == '__main__':
+#     new_event = NewEvent()
 
-    for Subscribers in [EmailSubscriber, SMSSubscriber]:
-        Subscribers(new_event)
-    print('Welcome!\nEnter with the hour and the minute of the event!')
-    hour = int(input('hour: '))
-    minutes = int(input('minutes: '))
-    message = input('Say something: ')
-    new_event.addMessage(message)
-    print('Subscribers: ',  new_event.showSubscribers())
-    while True:
-        flag = new_event.AddEventTime(hour, minutes)
-        if flag:
-            break
+#     for Subscribers in [EmailSubscriber, SMSSubscriber]:
+#         Subscribers(new_event)
+#     print('Welcome!\nEnter with the hour and the minute of the event!')
+#     hour = int(input('hour: '))
+#     minutes = int(input('minutes: '))
+#     message = input('Say something: ')
+#     new_event.addMessage(message)
+#     print('Subscribers: ',  new_event.showSubscribers())
+#     while True:
+#         flag = new_event.AddEventTime(hour, minutes)
+#         if flag:
+#             break
 
     

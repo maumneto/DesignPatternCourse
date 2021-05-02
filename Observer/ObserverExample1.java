@@ -121,7 +121,7 @@ class ObserverExample1 {
         // add email in ob1
         ob1.addEmail("mauricio@provedor.com");
         ob1.addEmail("joao@provedor.com");
-        // add email in ob2
+        // add SMS in ob2
         ob2.addTelNumber("0418599887766");
         ob2.addTelNumber("0418599112233");
 

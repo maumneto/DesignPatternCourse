@@ -7,6 +7,7 @@ import asyncio
 class NewEvent:
     def __init__(self):
         self.__subscribers = []
+        self.__message = ''
     
     def attach(self, subscriber):
         self.__subscribers.append(subscriber)
@@ -21,17 +22,21 @@ class NewEvent:
         for sub in self.__subscribers:
             sub.update()
     
+    def addMessage(self, message=''):
+        self.__message = message
+
     def getEvent(self):
-        return "A wild event appears..."
-        
+
+        return "A wild event appears! Message: " + self.__message
     
     def AddEventTime(self, hour=00, minutes=00, seconds = 00):
         now = time.localtime()
+        flag = False;
         if (now.tm_hour == hour and now.tm_min == minutes):
-            print('Enter!')
             self.notifyAll()
-        else:
-            print('wait')
+            flag = True
+        return flag
+        
 
 # interface observer
 class Subscriber(metaclass=ABCMeta):
@@ -63,15 +68,15 @@ if __name__ == '__main__':
 
     for Subscribers in [EmailSubscriber, SMSSubscriber]:
         Subscribers(new_event)
-
-    # year = int(input('year: '))
-    # month = int(input('month: '))
-    # day = int(input('day: '))
+    print('Welcome!\nEnter with the hour and the minute of the event!')
     hour = int(input('hour: '))
     minutes = int(input('minutes: '))
-    seconds = int(input('minutes: '))
-
-    new_event.AddEventTime(hour, minutes)
-    new_event.notifyAll()
-
+    message = input('Say something: ')
+    new_event.addMessage(message)
     print('Subscribers: ',  new_event.showSubscribers())
+    while True:
+        flag = new_event.AddEventTime(hour, minutes)
+        if flag:
+            break
+
+    

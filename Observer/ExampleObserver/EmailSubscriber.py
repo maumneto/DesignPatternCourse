@@ -6,6 +6,15 @@ class EmailSubscriber:
     def __init__(self, publisher):
         self.publisher = publisher
         self.publisher.attach(self)
+        self.listOfEmails = []
+
+    def addNewEmail(self, email):
+        self.listOfEmails.append(email)
+
+    def senfEmail(self):
+        for email in self.listOfEmails:
+            print('Sending message to: ', email)
 
     def update(self):
-        print(type(self).__name__, self.publisher.getEvent())
+        print(type(self).__name__, ' :: ',self.publisher.getEvent())
+        self.senfEmail()

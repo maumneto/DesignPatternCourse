@@ -10,19 +10,20 @@ class Singleton {
         return instance;
     }
     // method created to test the singleton instance
-    protected static void TestInstace() {
+    protected static void TestInstance() {
         System.out.println("Method by Singleton Instance!");
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        Singleton singleton = Singleton.getInstance();
-        System.out.println(singleton);
-        singleton.TestInstace();
-        
-        Singleton singleton2 = Singleton.getInstance();
-        System.out.println(singleton2);
-        singleton2.TestInstace();
+        Singleton sing = Singleton.getInstance();
+        Singleton sing2 = Singleton.getInstance();
+        if (sing == sing2) {
+            System.out.println("Same Instance!");
+            Singleton.TestInstance();
+        } else {
+            System.out.println("Different Instance!");
+        }
     }
 }

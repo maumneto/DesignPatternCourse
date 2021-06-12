@@ -23,7 +23,6 @@ This repository contains the codes used in the python design patterns course. Th
  - Design Pattern Classifications
  - Singleton Pattern;
  - Observer Pattern; 
- - Model-View-Controller (MVC) Pattern. 
 
 ## For Whom?
 

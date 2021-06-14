@@ -6,11 +6,15 @@ class GeometricFormat:
     def area_square(self):
         return sideLength * sideLength
 
-    def perimeter_squre(self):
+    def perimeter_square(self):
         return sideLength * 4
 
     def area_triangle(self):
-        return 
-
+        area  = (sideLength * height)/2
+        return area
+    
     def draw_square(self):
-        printf("Drawing a Square!")
+        print("Drawing a Square!")
+
+    def draw_triangle(self):
+        print("Drawing a Triangle!")

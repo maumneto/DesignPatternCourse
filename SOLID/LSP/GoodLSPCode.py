@@ -36,7 +36,7 @@ class AccountCommon(AccountManager):
         super().income(rate)
     
     def message(self):
-        print('Common account balance: %.2f', self.getBalance())
+        print('Common account balance: %.2f' % self.getBalance())
 
 class AccountSpetial(AccountManager):
     def __init__(self, balance = 0):
@@ -52,7 +52,7 @@ class AccountSpetial(AccountManager):
         super().withdraw(value)
 
     def message(self):
-        print('Common account balance: %.2f', self.getBalance())
+        print('Common account balance: %.2f' % self.getBalance())
 
 if __name__ == '__main__':
     commonAccount = AccountCommon(500)

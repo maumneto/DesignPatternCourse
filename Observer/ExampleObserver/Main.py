@@ -25,7 +25,7 @@ class Main:
                 print('No option chosen!')
                 break
             
-        print('Make an appointment:')
+        print('Make an appointment!')
         hour = int(input('Hour: '))
         minutes = int(input('Minutes: '))
         message = input('Say something: ')

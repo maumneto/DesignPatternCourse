@@ -25,10 +25,20 @@ class Bike(Vehicle):
     def calculationPrice(self):
         return super().getValue() * 1.4
 
+class MotorCycle(Vehicle):
+    def __init__(self, value):
+        super(MotorCycle, self).__init__(value)
+
+    def calculationPrice(self):
+        return super().getValue() * 1.6
+
 
 if __name__ == '__main__':
     car = Car(100000)
     print('Value of the car: %f' % car.calculationPrice()) 
 
     bike = Bike(1000)
-    print('Value of the car: %f' % bike.calculationPrice()) 
+    print('Value of the car: %f' % bike.calculationPrice())
+
+    motorcycle = MotorCycle(5000)
+    print('Value of the car: %f' % motorcycle.calculationPrice()) 

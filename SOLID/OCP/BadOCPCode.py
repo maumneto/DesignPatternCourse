@@ -20,6 +20,13 @@ class Bike(Vehicle):
     def buyBike(self):
         print('buying a bike...')
 
+class MotorCycle(Vehicle):
+    def __init__(self, typeInstance = None, value = 0):
+        super(MotorCycle, self).__init__(typeInstance, value)
+
+    def buyMotorCycle(self):
+        print('buying a motorcycle...')
+
 class VehiclePrice:
     def calcVehiclePrice(self, Vehicle):
         if isinstance(Vehicle, Car):
@@ -28,6 +35,9 @@ class VehiclePrice:
         elif isinstance(Vehicle, Bike):
             price = Vehicle.getValue() * 1.4
             print('buying a bike! Price %.2f' % price)
+        elif isinstance(Vehicle, MotorCycle):
+            price = Vehicle.getValue() * 1.6
+            print('buying a motorcycle! Price %.2f' % price)
         else:
             print("There's no price calculation to %s" % type(Vehicle))
 
